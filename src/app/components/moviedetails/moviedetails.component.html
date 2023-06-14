@@ -1,0 +1,73 @@
+    <!-- Breadcrumb Begin -->
+    <!-- <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="./categories.html">Categories</a>
+                        <span>Romance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Breadcrumb End -->
+        <!-- Page Preloder -->
+        <div id="preloder"  *ngIf="isLoading">
+            <div class="loader bg-dark"></div>
+          </div>
+          
+    
+
+    <!-- Anime Section Begin -->
+    <section class="anime-details spad">
+        <div class="container">
+            <div class="anime__details__content">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="anime__details__pic set-bg">
+                            <img src="https://image.tmdb.org/t/p/original/{{ getMovieetailsResults.poster_path}}"  class="anime__details__pic set-bg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="anime__details__text">
+                            <div class="anime__details__title">
+                                <h3>{{getMovieetailsResults.original_title}}</h3>
+                            </div>
+                            <p>{{getMovieetailsResults.overview}}</p>
+                            <div class="anime__details__widget">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul>
+                                            <li><span>Type:</span> TV Series</li>
+                                            <li><span>Language:</span> {{getMovieetailsResults.original_language}}</li>
+                                            <li><span>Date aired:</span>{{getMovieetailsResults.release_date}}</li>
+                                            <li><span>Status:</span>{{getMovieetailsResults.status}} </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul>
+                                            <li><span>Rating:</span>  {{getMovieetailsResults.vote_average}} / 10 </li>
+                                            <li><span>Votes:</span> {{getMovieetailsResults.vote_count}}</li>
+                                            <li><span>Revenue:</span>${{getMovieetailsResults.revenue}}</li>
+                                            <li><span>Budget:</span>${{getMovieetailsResults.budget}}</li>
+                                            <li><span>Popularity:</span> {{getMovieetailsResults.popularity}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="anime__details__btn">
+                                <a [href]="getTrailerUrl(getMovieetailsResults.trailerKey)" target="_blank" class="watch-btn">
+                                  <span>Watch Trailer</span> <i class="fa fa-angle-right"></i>
+                                </a>
+                              </div>                              
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Anime Section End -->

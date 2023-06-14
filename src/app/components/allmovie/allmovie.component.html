@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h4 style="color: white;">All Movies</h4>
+        <hr>
+        <div class="movies">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let p of movies">
+                <div class="product__item">
+                  <div class="product__item__pic set-bg"  [routerLink]="['movie', p.id]">
+                    <img src="https://image.tmdb.org/t/p/original/{{ p.poster_path }}"  class="product__item__pic set-bg" alt="">
+                    <div class="ep">10 / {{ p.vote_average }}</div>
+                  </div>
+                  <div class="product__item__text">
+                    <h5><a [routerLink]="['movie', p.id]">{{ p.original_title }}</a></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        <nav aria-label="Page navigation example">
+            <ul class="pagination dark-pagination pg-blue justify-content-center ">
+              <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" (click)="fetchMovies(currentPage - 1)" tabindex="-1">Previous</a>
+              </li>
+              <ng-container *ngFor="let page of totalPagesArray; let i = index">
+                <li class="page-item" *ngIf="i < 3 || page === currentPage">
+                  <a class="page-link" [class.active]="page === currentPage" (click)="fetchMovies(page)">{{ page }}</a>
+                </li>
+              </ng-container>
+              <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <a class="page-link" (click)="fetchMovies(currentPage + 1)">Next</a>
+              </li>
+            </ul>
+          </nav>
+          
+      </div>
+    </div>
+  </div>
+  
